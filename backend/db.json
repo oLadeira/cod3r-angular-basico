@@ -24,6 +24,16 @@
       "name": "Geladeira",
       "price": "1399.00",
       "id": 5
+    },
+    {
+      "name": "Geladeira",
+      "price": "1399.00",
+      "id": 6
+    },
+    {
+      "name": "Produto de teste",
+      "price": 199.99,
+      "id": 7
     }
   ]
 }
