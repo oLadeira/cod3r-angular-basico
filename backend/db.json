@@ -39,6 +39,11 @@
       "name": "testando",
       "price": "1.22",
       "id": 8
+    },
+    {
+      "name": "testando um novo produto lalalalalal",
+      "price": "87222.12",
+      "id": 9
     }
   ]
 }
