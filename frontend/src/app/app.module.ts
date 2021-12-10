@@ -20,6 +20,8 @@ import { ProductCrudComponent } from './views/product-crud/product-crud.componen
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { RedDirective } from './directives/red.directive';
+import { GreenDirective } from './directives/green.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { MatInputModule } from '@angular/material/input';
     NavComponent,
     HomeComponent,
     ProductCrudComponent,
-    ProductCreateComponent
+    ProductCreateComponent,
+    RedDirective,
+    GreenDirective
   ],
   imports: [
     BrowserModule,
