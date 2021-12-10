@@ -22,7 +22,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RedDirective } from './directives/red.directive';
 import { GreenDirective } from './directives/green.directive';
-
+import { ProductReadComponent } from './components/product/product-read/product-read.component';
+//import { Mat } from '@angular/material/table';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,8 @@ import { GreenDirective } from './directives/green.directive';
     ProductCrudComponent,
     ProductCreateComponent,
     RedDirective,
-    GreenDirective
+    GreenDirective,
+    ProductReadComponent
   ],
   imports: [
     BrowserModule,

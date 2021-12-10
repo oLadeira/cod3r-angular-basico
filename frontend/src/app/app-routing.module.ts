@@ -1,3 +1,4 @@
+import { ProductReadComponent } from './components/product/product-read/product-read.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
