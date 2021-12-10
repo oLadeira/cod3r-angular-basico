@@ -21,24 +21,9 @@
       "id": 4
     },
     {
-      "name": "Geladeira",
-      "price": "1399.00",
-      "id": 5
-    },
-    {
-      "name": "Geladeira",
-      "price": "1399.00",
-      "id": 6
-    },
-    {
-      "name": "Veio do formulário",
+      "name": "Dado do formulário",
       "price": "9.99",
       "id": 7
-    },
-    {
-      "name": "testando123",
-      "price": "1.43",
-      "id": 8
     },
     {
       "name": "betão",
