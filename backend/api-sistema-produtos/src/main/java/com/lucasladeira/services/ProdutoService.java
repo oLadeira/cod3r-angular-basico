@@ -1,6 +1,7 @@
 package com.lucasladeira.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,16 @@ public class ProdutoService {
 	public List<Produto> getAll(){
 		List<Produto> list = produtoRepository.findAll();
 		return list;
+	}
+	
+	public Produto getById(Integer id) {
+		Optional<Produto> opt = produtoRepository.findById(id);
+		
+		if (opt.isEmpty()) {
+			//tratar erro
+		}
+		
+		return opt.get();
 	}
 	
 }
