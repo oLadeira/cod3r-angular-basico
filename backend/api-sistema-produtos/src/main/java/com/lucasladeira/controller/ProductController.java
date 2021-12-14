@@ -13,38 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lucasladeira.entities.Produto;
-import com.lucasladeira.services.ProdutoService;
+import com.lucasladeira.dto.ProductNewDTO;
+import com.lucasladeira.entities.Product;
+import com.lucasladeira.services.ProductService;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*") //politica CORS, estudar sobre
 @RequestMapping("/produtos")
-public class ProdutoController {
+public class ProductController {
 
 	@Autowired
-	private ProdutoService produtoService;
+	private ProductService produtoService;
 	
 	
 	@GetMapping
-	public ResponseEntity<List<Produto>> getAll(){
-		List<Produto> list = produtoService.getAll();
+	public ResponseEntity<List<Product>> getAll(){
+		List<Product> list = produtoService.getAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> getById(@PathVariable Integer id){
-		Produto produto = produtoService.getById(id);
+	public ResponseEntity<Product> getById(@PathVariable Integer id){
+		Product produto = produtoService.getById(id);
 		return ResponseEntity.ok().body(produto);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> save (@RequestBody Produto produto){
-		produtoService.save(produto);
+	public ResponseEntity<Void> save (@RequestBody ProductNewDTO productNewDTO){
+		produtoService.save(productNewDTO);
 		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Void> update (@PathVariable Integer id, @RequestBody Produto produto){
+	public ResponseEntity<Void> update (@PathVariable Integer id, @RequestBody Product produto){
 		produtoService.update(id, produto);
 		return ResponseEntity.ok().build();
 	}

@@ -19,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-public class Fornecedor implements Serializable{
+public class Supplier implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 

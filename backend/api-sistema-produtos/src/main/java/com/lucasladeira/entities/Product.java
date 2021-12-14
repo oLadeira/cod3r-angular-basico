@@ -19,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-public class Produto implements Serializable{
+public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,9 +30,9 @@ public class Produto implements Serializable{
 	private Double price;
 	
 	@ManyToOne
-	@JoinColumn(name = "fornecedor")
-	private Fornecedor fornecedor;
+	@JoinColumn(name = "supplier")
+	private Supplier supplier;
 	
-	public Produto() {}
-	
+	public Product() {}
+			
 }

@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lucasladeira.entities.Fornecedor;
-import com.lucasladeira.services.FornecedorService;
+import com.lucasladeira.entities.Supplier;
+import com.lucasladeira.services.SupplierService;
 
 @RestController
 @RequestMapping("/fornecedores")
-public class FornecedorController {
+public class SupplierController {
 
 	@Autowired
-	private FornecedorService fornecedorService;
+	private SupplierService fornecedorService;
 	
 	
 	@GetMapping
-	public ResponseEntity<List<Fornecedor>> getAll(){
-		List<Fornecedor> list = fornecedorService.getAll();
+	public ResponseEntity<List<Supplier>> getAll(){
+		List<Supplier> list = fornecedorService.getAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
