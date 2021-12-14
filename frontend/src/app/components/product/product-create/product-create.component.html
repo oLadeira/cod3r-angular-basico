@@ -14,6 +14,10 @@
                 <input matInput placeholder="Preço (R$)" [(ngModel)]="product.price" name="price" type="text">
             </mat-form-field>
 
+            <mat-form-field>
+                <input matInput placeholder="Fornecedor" [(ngModel)]="product.supplier" name="supplier" type="text">
+            </mat-form-field>
+
         </form>
 
         <button appGreen mat-raised-button (click)="createProduct()">Salvar</button>
