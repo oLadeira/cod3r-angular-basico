@@ -14,7 +14,7 @@ public class FornecedorService {
 	@Autowired
 	private FornecedorRepository fornecedorRepository;
 	
-	
+	//GET all
 	public List<Fornecedor> getAll(){
 		List<Fornecedor> list = fornecedorRepository.findAll();
 		return list;
