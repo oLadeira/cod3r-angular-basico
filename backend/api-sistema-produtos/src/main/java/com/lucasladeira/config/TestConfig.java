@@ -25,14 +25,14 @@ public class TestConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Produto produto1 = new Produto(null, "Computador", 1200.00);
-		Produto produto2 = new Produto(null, "Televisão Smart 50 polegadas", 3200.00);
-		produtoRepository.saveAll(Arrays.asList(produto1, produto2));
-		
-		
-		Fornecedor fornecedor1 = new Fornecedor(null, "Coca-Cola", "338.480.800-28");
+		Fornecedor fornecedor1 = new Fornecedor(null, "Megaware", "338.480.800-28");
 		Fornecedor fornecedor2 = new Fornecedor(null, "Samsung", "950.450.110-90");
 		fornecedorRepository.saveAll(Arrays.asList(fornecedor1, fornecedor2));
+		
+		Produto produto1 = new Produto(null, "Computador", 1200.00, fornecedor1);
+		Produto produto2 = new Produto(null, "Televisão Smart 50 polegadas", 3200.00, fornecedor2);
+		produtoRepository.saveAll(Arrays.asList(produto1, produto2));
+						
 	}
 
 }

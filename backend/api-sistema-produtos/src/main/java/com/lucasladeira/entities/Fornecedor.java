@@ -28,6 +28,6 @@ public class Fornecedor implements Serializable{
 	private Integer id;
 	private String tradingName;
 	private String cnpj;
-		
+	
 	
 }
