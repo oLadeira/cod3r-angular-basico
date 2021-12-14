@@ -31,4 +31,9 @@ public class ProdutoService {
 		return opt.get();
 	}
 	
+	public Produto save (Produto produto) {
+		produto = produtoRepository.save(produto);
+		return produto;
+	}
+	
 }

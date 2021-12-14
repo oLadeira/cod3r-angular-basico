@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +32,12 @@ public class ProdutoController {
 	public ResponseEntity<Produto> getById(@PathVariable Integer id){
 		Produto produto = produtoService.getById(id);
 		return ResponseEntity.ok().body(produto);
+	}
+	
+	@PostMapping
+	public ResponseEntity<Void> save (@RequestBody Produto produto){
+		produto = produtoService.save(produto);
+		return ResponseEntity.ok().build();
 	}
 	
 }
