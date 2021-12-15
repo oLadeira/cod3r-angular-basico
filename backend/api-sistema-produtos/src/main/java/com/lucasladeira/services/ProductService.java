@@ -52,6 +52,17 @@ public class ProductService {
 		productRepository.save(produto);
 	}
 	
+	//DELETE
+	public void delete(Integer id) {
+		Optional<Product> opt = productRepository.findById(id);
+		
+		if (opt.isEmpty()) {
+			//tratar erro
+		}
+		
+		productRepository.deleteById(id);
+	}
+	
 	//utilitarios
 	
 	public Product fromDTO(ProductNewDTO productNewDTO) {

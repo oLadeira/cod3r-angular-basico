@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,30 +24,36 @@ import com.lucasladeira.services.ProductService;
 public class ProductController {
 
 	@Autowired
-	private ProductService produtoService;
+	private ProductService productService;
 	
 	
 	@GetMapping
 	public ResponseEntity<List<Product>> getAll(){
-		List<Product> list = produtoService.getAll();
+		List<Product> list = productService.getAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Product> getById(@PathVariable Integer id){
-		Product produto = produtoService.getById(id);
+		Product produto = productService.getById(id);
 		return ResponseEntity.ok().body(produto);
 	}
 	
 	@PostMapping
 	public ResponseEntity<Void> save (@RequestBody ProductNewDTO productNewDTO){
-		produtoService.save(productNewDTO);
+		productService.save(productNewDTO);
 		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Void> update (@PathVariable Integer id, @RequestBody Product produto){
-		produtoService.update(id, produto);
+		productService.update(id, produto);
+		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Integer id){
+		productService.delete(id);
 		return ResponseEntity.ok().build();
 	}
 	
