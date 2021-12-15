@@ -12,12 +12,19 @@ import com.lucasladeira.repositories.SupplierRepository;
 public class SupplierService {
 
 	@Autowired
-	private SupplierRepository fornecedorRepository;
+	private SupplierRepository supplierRepository;
 	
 	//GET all
 	public List<Supplier> getAll(){
-		List<Supplier> list = fornecedorRepository.findAll();
+		List<Supplier> list = supplierRepository.findAll();
 		return list;
 	}	
+	
+	//POST
+	public Supplier save(Supplier supplier) {
+		supplierRepository.save(supplier);
+		return supplier;
+	}
+	
 	
 }

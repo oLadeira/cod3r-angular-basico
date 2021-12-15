@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,13 +20,19 @@ import com.lucasladeira.services.SupplierService;
 public class SupplierController {
 
 	@Autowired
-	private SupplierService fornecedorService;
+	private SupplierService supplierService;
 	
 	
 	@GetMapping
 	public ResponseEntity<List<Supplier>> getAll(){
-		List<Supplier> list = fornecedorService.getAll();
+		List<Supplier> list = supplierService.getAll();
 		return ResponseEntity.ok().body(list);
+	}
+	
+	@PostMapping
+	public ResponseEntity<Void> save(@RequestBody Supplier supplier){
+		supplierService.save(supplier);
+		return ResponseEntity.ok().build();
 	}
 	
 }
