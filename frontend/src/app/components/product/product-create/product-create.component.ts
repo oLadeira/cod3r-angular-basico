@@ -1,3 +1,5 @@
+import { Supplier } from './../../supplier/supplier.model';
+import { DropdownService } from './../dropdown.service';
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,9 +19,16 @@ export class ProductCreateComponent implements OnInit {
     supplier: 1
   }
 
-  constructor(private productService: ProductService, private router: Router ) { }
+  supplier!: Supplier[];
+  
+
+  constructor(private productService: ProductService, private router: Router, private dropdownService: DropdownService ) { }
 
   ngOnInit(): void {
+    this.dropdownService.readFornecedores().subscribe(dados => {
+      this.supplier = dados;
+      console.log(dados);
+    });
   }
   
   createProduct():void{

@@ -15,9 +15,11 @@
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput placeholder="Fornecedor" [(ngModel)]="product.supplier" name="supplier" type="text">
-            </mat-form-field>
-
+                <mat-label>Fornecedor</mat-label>
+                <select matNativeControl required>
+                  <option *ngFor="let supplier of supplier" value="{{ supplier.id }}">{{supplier.tradingName}}</option>
+                </select>
+              </mat-form-field>
         </form>
 
         <button appGreen mat-raised-button (click)="createProduct()">Salvar</button>
