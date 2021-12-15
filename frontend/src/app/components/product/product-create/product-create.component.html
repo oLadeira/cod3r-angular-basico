@@ -16,8 +16,8 @@
 
             <mat-form-field>
                 <mat-label>Fornecedor</mat-label>
-                <select matNativeControl required [(ngModel)]="product.supplier">
-                  <option *ngFor="let suppliers of supplier" [value]="suppliers.id">{{suppliers.tradingName}}</option>
+                <select matNativeControl required [(ngModel)]="product.supplier" name="supplier">
+                  <option *ngFor="let suppliers of supplier" [value]="suppliers.id" >{{suppliers.tradingName}}</option>
                 </select>
               </mat-form-field>
         </form>
