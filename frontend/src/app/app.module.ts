@@ -30,6 +30,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud/supplier-crud.component';
+import { SupplierReadComponent } from './components/supplier/supplier-read/supplier-read.component';
 
  
 @NgModule({
@@ -47,7 +48,8 @@ import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud/suppl
     ProductRead2Component,
     ProductUpdateComponent,
     ProductDeleteComponent,
-    SupplierCrudComponent
+    SupplierCrudComponent,
+    SupplierReadComponent
   ],
   imports: [
     BrowserModule,
