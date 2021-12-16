@@ -40,5 +40,14 @@ public class SupplierService {
 		return supplier;
 	}
 	
+	//DELETE
+	public void delete(Integer id) {
+		Optional<Supplier> opt = supplierRepository.findById(id);
+		
+		//tratar excecao
+				
+		supplierRepository.deleteById(id);
+	}
+	
 	
 }
