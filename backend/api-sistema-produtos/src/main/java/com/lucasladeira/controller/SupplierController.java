@@ -32,6 +32,13 @@ public class SupplierController {
 		return ResponseEntity.ok().body(list);
 	}
 	
+	@GetMapping("/{id}")
+	public ResponseEntity<Supplier> getById(@PathVariable Integer id){
+		Supplier supplier = supplierService.getById(id);
+		
+		return ResponseEntity.ok().body(supplier);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Void> save(@RequestBody Supplier supplier){
 		supplierService.save(supplier);

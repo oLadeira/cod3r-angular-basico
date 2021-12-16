@@ -19,7 +19,16 @@ public class SupplierService {
 	public List<Supplier> getAll(){
 		List<Supplier> list = supplierRepository.findAll();
 		return list;
-	}	
+	}
+	
+	//GET by id
+	public Supplier getById(Integer id) {
+		Optional<Supplier> opt = supplierRepository.findById(id);
+		
+		//tratar excecao
+		
+		return opt.get();		
+	}
 	
 	//POST
 	public Supplier save(Supplier supplier) {
