@@ -1,5 +1,6 @@
 package com.lucasladeira.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.lucasladeira.dto.ProductNewDTO;
 import com.lucasladeira.entities.Product;
@@ -41,8 +43,12 @@ public class ProductController {
 	
 	@PostMapping
 	public ResponseEntity<Void> save (@RequestBody ProductNewDTO productNewDTO){
-		productService.save(productNewDTO);
-		return ResponseEntity.ok().build();
+		Product product = productService.save(productNewDTO);
+		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(product.getId()).toUri(); 
+		
+		return ResponseEntity.created(uri).build();
 	}
 	
 	@PutMapping("/{id}")
