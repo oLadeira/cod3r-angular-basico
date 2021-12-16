@@ -1,3 +1,5 @@
+import { Supplier } from './../supplier.model';
+import { SupplierService } from './../supplier.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierReadComponent implements OnInit {
 
-  constructor() { }
+  suppliers!: Supplier[]
+
+  constructor(private supplierService: SupplierService) { }
 
   ngOnInit(): void {
+    this.supplierService.readSuppliers();
   }
 
 }

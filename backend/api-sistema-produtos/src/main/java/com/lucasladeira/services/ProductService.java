@@ -3,6 +3,7 @@ package com.lucasladeira.services;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import com.lucasladeira.dto.ProductNewDTO;
 import com.lucasladeira.entities.Product;
 import com.lucasladeira.entities.Supplier;
 import com.lucasladeira.repositories.ProductRepository;
+import com.lucasladeira.services.exceptions.EntityNotFoundException;
 
 @Service
 public class ProductService {
@@ -23,13 +25,11 @@ public class ProductService {
 		return list;
 	}
 	
-	//GET
+	//GET by id
 	public Product getById(Integer id) {
 		Optional<Product> opt = productRepository.findById(id);
 		
-		if (opt.isEmpty()) {
-			//tratar erro
-		}
+		opt.orElseThrow(() -> new EntityNotFoundException("Produto não encontrado!, ID: " + id)); //tratando produto não encontrado
 		
 		return opt.get();
 	}
@@ -45,9 +45,8 @@ public class ProductService {
 	public void update (Integer id, Product produto) {
 		Optional<Product> opt = productRepository.findById(id);
 		
-		if (opt.isEmpty()) {
-			//tratar erro
-		}
+		opt.orElseThrow(() -> new EntityNotFoundException("Produto não encontrado!, ID: " + id));
+		
 		produto.setId(id);
 		productRepository.save(produto);
 	}
@@ -56,9 +55,7 @@ public class ProductService {
 	public void delete(Integer id) {
 		Optional<Product> opt = productRepository.findById(id);
 		
-		if (opt.isEmpty()) {
-			//tratar erro
-		}
+		opt.orElseThrow(() -> new EntityNotFoundException("Produto não encontrado!, ID: " + id));
 		
 		productRepository.deleteById(id);
 	}
