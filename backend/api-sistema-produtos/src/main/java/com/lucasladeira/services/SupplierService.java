@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.lucasladeira.entities.Supplier;
 import com.lucasladeira.repositories.SupplierRepository;
+import com.lucasladeira.services.exceptions.EntityNotFoundException;
 
 @Service
 public class SupplierService {
@@ -25,7 +26,7 @@ public class SupplierService {
 	public Supplier getById(Integer id) {
 		Optional<Supplier> opt = supplierRepository.findById(id);
 		
-		//tratar excecao
+		opt.orElseThrow(() -> new EntityNotFoundException("Fornecedor não encontrado!, ID: " + id));
 		
 		return opt.get();		
 	}
@@ -41,9 +42,8 @@ public class SupplierService {
 	public Supplier update(Integer id, Supplier supplier) {
 		Optional<Supplier> opt = supplierRepository.findById(id);
 		
-		if (opt.isEmpty()) {
-			//tratar erro
-		}
+		opt.orElseThrow(() -> new EntityNotFoundException("Fornecedor não encontrado!, ID: " + id));		
+		
 		supplier.setId(id);
 		supplierRepository.save(supplier);
 		return supplier;
@@ -53,7 +53,7 @@ public class SupplierService {
 	public void delete(Integer id) {
 		Optional<Supplier> opt = supplierRepository.findById(id);
 		
-		//tratar excecao
+		opt.orElseThrow(() -> new EntityNotFoundException("Fornecedor não encontrado!, ID: " + id));
 				
 		supplierRepository.deleteById(id);
 	}
