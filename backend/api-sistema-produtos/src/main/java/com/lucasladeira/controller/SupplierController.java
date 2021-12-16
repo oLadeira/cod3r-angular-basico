@@ -1,5 +1,6 @@
 package com.lucasladeira.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.lucasladeira.entities.Supplier;
 import com.lucasladeira.services.SupplierService;
@@ -42,7 +44,12 @@ public class SupplierController {
 	@PostMapping
 	public ResponseEntity<Void> save(@RequestBody Supplier supplier){
 		supplierService.save(supplier);
-		return ResponseEntity.ok().build();
+		
+		//boas praticas, ao inserir um recurso retornar sua URI (endereco) onde foi inserido
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(supplier.getId()).toUri(); 
+		
+		return ResponseEntity.created(uri).build();
 	}
 	
 	@PutMapping("/{id}")
