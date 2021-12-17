@@ -3,6 +3,8 @@ package com.lucasladeira.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -42,9 +44,10 @@ public class ProductController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> save (@RequestBody ProductNewDTO productNewDTO){
+	public ResponseEntity<Void> save (@RequestBody @Valid ProductNewDTO productNewDTO){
 		Product product = productService.save(productNewDTO);
 		
+		//boas praticas, ao inserir um recurso retornar sua URI (endereco) onde foi inserido
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(product.getId()).toUri(); 
 		
