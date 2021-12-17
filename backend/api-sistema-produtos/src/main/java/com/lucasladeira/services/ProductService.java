@@ -66,6 +66,7 @@ public class ProductService {
 		Supplier supplier = new Supplier(productNewDTO.getSupplier(), null, null);
 		Product product = new Product(null, productNewDTO.getName(), productNewDTO.getPrice(), supplier);
 		
+		
 		return product;
 	}
 	

@@ -15,7 +15,7 @@ public class ProductNewDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	@NotBlank(message = "Campo Nome é obrigatório")
+	@NotBlank(message = "Campo não informado")
 	private String name;
 	
 	
