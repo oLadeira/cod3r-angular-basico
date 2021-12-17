@@ -3,7 +3,6 @@ package com.lucasladeira.services;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,7 +64,6 @@ public class ProductService {
 	public Product fromDTO(ProductNewDTO productNewDTO) {
 		Supplier supplier = new Supplier(productNewDTO.getSupplier(), null, null);
 		Product product = new Product(null, productNewDTO.getName(), productNewDTO.getPrice(), supplier);
-		
 		
 		return product;
 	}
