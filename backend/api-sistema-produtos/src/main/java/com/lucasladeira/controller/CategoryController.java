@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lucasladeira.dto.CategoryNewDTO;
 import com.lucasladeira.entities.Category;
 import com.lucasladeira.services.CategoryService;
 
@@ -30,5 +32,11 @@ public class CategoryController {
 	public ResponseEntity<Category> getById(@PathVariable Integer id){
 		Category category = categoryService.getById(id);
 		return ResponseEntity.ok().body(category);
+	}
+	
+	@PostMapping
+	public ResponseEntity<Void> save(CategoryNewDTO categoryNewDTO){
+		categoryService.save(categoryNewDTO);
+		return ResponseEntity.ok().build();
 	}
 }
