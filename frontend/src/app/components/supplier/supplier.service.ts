@@ -8,12 +8,12 @@ import { Injectable } from '@angular/core';
 })
 export class SupplierService {
 
-  baseUrl = "http://localhost:8080/fornecedores";
+  baseUrl = "http://localhost:8080/fornecedores/";
 
   constructor(private http: HttpClient) { }
 
-  readSuppliers(){
-    this.http.get<Supplier[]>(this.baseUrl);
+  readSuppliers(): Observable<Supplier[]>{
+    return this.http.get<Supplier[]>(this.baseUrl);
   }
 
 }

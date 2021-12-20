@@ -9,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierReadComponent implements OnInit {
 
-  suppliers!: Supplier[]
+  suppliers: Supplier[] = [];
+
+  displayedColumns = ['id', 'tradingName', 'cnpj', 'action'];
 
   constructor(private supplierService: SupplierService) { }
 
   ngOnInit(): void {
-    this.supplierService.readSuppliers();
+    this.supplierService.readSuppliers().subscribe(suppliers => {
+      this.suppliers = suppliers;
+    });
   }
 
 }
