@@ -42,13 +42,14 @@ public class ProductService {
 	}
 	
 	//PUT
-	public void update (Integer id, Product produto) {
+	public void update (Integer id, ProductDTO productDTO) {
+		Product product = fromDTO(productDTO);
 		Optional<Product> opt = productRepository.findById(id);
 		
 		opt.orElseThrow(() -> new EntityNotFoundException("Produto não encontrado!, ID: " + id));
 		
-		produto.setId(id);
-		productRepository.save(produto);
+		product.setId(id);
+		productRepository.save(product);
 	}
 	
 	//DELETE

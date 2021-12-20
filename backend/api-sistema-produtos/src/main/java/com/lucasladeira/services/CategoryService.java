@@ -6,9 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lucasladeira.dto.CategoryDTO;
 import com.lucasladeira.dto.CategoryNewDTO;
 import com.lucasladeira.entities.Category;
 import com.lucasladeira.repositories.CategoryRepository;
+import com.lucasladeira.services.exceptions.EntityNotFoundException;
 
 @Service
 public class CategoryService {
@@ -16,11 +18,12 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 
-
+	//GET all
 	public List<Category> getAll(){
 		return categoryRepository.findAll();
 	}
 	
+	//GET byId
 	public Category getById(Integer id) {
 		Optional<Category> opt = categoryRepository.findById(id);
 		
@@ -29,11 +32,26 @@ public class CategoryService {
 		return opt.get();
 	}
 	
+	//POST
 	public Category save(CategoryNewDTO categoryNewDTO) {
 		Category category = fromDTO(categoryNewDTO);
 		
 		return categoryRepository.save(category);
 	}
+	
+	//PUT
+	public Category update(Integer id, CategoryDTO categoryDTO) {
+		Category category = fromDTO(categoryDTO);
+		
+		Optional<Category> opt = categoryRepository.findById(id);
+		
+		opt.orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada! ID:" + id));
+		
+		category.setId(id);
+		return categoryRepository.save(category);		
+	}
+	
+	
 	
 	
 	//utilitarios
@@ -41,6 +59,12 @@ public class CategoryService {
 		Category category = new Category();
 		category.setId(null);
 		category.setName(categoryNewDTO.getName());
+		return category;
+	}
+	
+	public Category fromDTO(CategoryDTO categoryDTO) {
+		Category category = new Category();
+		category.setName(categoryDTO.getName());
 		return category;
 	}
 }
