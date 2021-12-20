@@ -3,6 +3,9 @@ package com.lucasladeira.dto;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,12 +20,13 @@ public class ProductNewDTO implements Serializable{
 
 
 	@NotBlank(message = "Campo não informado")
+	@Length(min = 5, max = 120, message = "O tamanho deve ser entre 5 e 120 caracteres!")
 	private String name;
 	
-
+	@NotNull(message = "Campo não informado")
 	private Double price;
 	
-
+	@NotNull(message = "Campo não informado")
 	private Integer supplier;
 		
 
