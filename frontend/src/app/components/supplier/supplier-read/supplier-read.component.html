@@ -22,10 +22,10 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>Ações</th>
         <td mat-cell *matCellDef="let row">
-            <a class="edit" routerLink="/products/update/{{ row.id }}">
+            <a class="edit" routerLink="/suppliers/update/{{ row.id }}">
                 <i class="blue material-icons">edit</i>
             </a>
-            <a class="delete" routerLink="/products/delete/{{ row.id }}">
+            <a class="delete" routerLink="/suppliers/delete/{{ row.id }}">
                 <i class="red material-icons">delete</i>
             </a>
         </td>

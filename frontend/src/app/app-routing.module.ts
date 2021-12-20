@@ -1,3 +1,4 @@
+import { SupplierUpdateComponent } from './components/supplier/supplier-update/supplier-update.component';
 import { SupplierCreateComponent } from './components/supplier/supplier-create/supplier-create.component';
 import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud/supplier-crud.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
@@ -9,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 import { HomeComponent } from './views/home/home.component';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
+import { supportsPassiveEventListeners } from '@angular/cdk/platform';
 
 const routes: Routes = [
   {
@@ -38,6 +40,10 @@ const routes: Routes = [
   {
     path: "suppliers/create",
     component: SupplierCreateComponent
+  },
+  {
+    path: "suppliers/update/:id",
+    component: SupplierUpdateComponent
   }
 ];
 

@@ -26,8 +26,18 @@ export class SupplierService {
     return this.http.get<Supplier[]>(this.baseUrl);
   }
 
+  readById(id: string): Observable<Supplier>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Supplier>(url);
+  }
+
   createSupplier(supplier: Supplier): Observable<Supplier>{
     return this.http.post<Supplier>(this.baseUrl, supplier);
+  }
+
+  updateSupplier(supplier: Supplier): Observable<Supplier>{
+    const url = `${this.baseUrl}/${supplier.id}`
+    return this.http.put<Supplier>(url, supplier);
   }
 
 }
