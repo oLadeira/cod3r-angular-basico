@@ -1,3 +1,4 @@
+import { SupplierCreateComponent } from './components/supplier/supplier-create/supplier-create.component';
 import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud/supplier-crud.component';
 import { ProductDeleteComponent } from './components/product/product-delete/product-delete.component';
 import { ProductUpdateComponent } from './components/product/product-update/product-update.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "suppliers",
     component: SupplierCrudComponent
+  },
+  {
+    path: "suppliers/create",
+    component: SupplierCreateComponent
   }
 ];
 
