@@ -2,6 +2,8 @@ package com.lucasladeira.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +38,7 @@ public class CategoryController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> save(@RequestBody CategoryNewDTO categoryNewDTO){
+	public ResponseEntity<Void> save(@RequestBody @Valid CategoryNewDTO categoryNewDTO){
 		categoryService.save(categoryNewDTO);
 		return ResponseEntity.ok().build();
 	}
