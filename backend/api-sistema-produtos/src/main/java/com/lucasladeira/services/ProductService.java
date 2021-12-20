@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lucasladeira.dto.ProductDTO;
 import com.lucasladeira.dto.ProductNewDTO;
 import com.lucasladeira.entities.Product;
 import com.lucasladeira.entities.Supplier;
@@ -68,6 +69,11 @@ public class ProductService {
 		return product;
 	}
 	
+	public Product fromDTO(ProductDTO productDTO) {
+		Supplier supplier = new Supplier(productDTO.getSupplier(), null, null);
+		Product product = new Product(null, productDTO.getName(), productDTO.getPrice(), supplier);
+		return product;
+	}
 	
 //	private Product updateData(Integer id,Product product) {
 //		Optional<Product> opt = productRepository.findById(id);

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.lucasladeira.dto.ProductDTO;
 import com.lucasladeira.dto.ProductNewDTO;
 import com.lucasladeira.entities.Product;
 import com.lucasladeira.services.ProductService;
@@ -55,8 +56,9 @@ public class ProductController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Void> update (@PathVariable Integer id, @RequestBody Product produto){
-		productService.update(id, produto);
+	public ResponseEntity<Void> update (@PathVariable Integer id, @RequestBody ProductDTO productDTO){
+		Product product = productService.fromDTO(productDTO);
+		productService.update(id, product);
 		return ResponseEntity.ok().build();
 	}
 	
