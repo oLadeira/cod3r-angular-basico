@@ -33,6 +33,7 @@ import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud/suppl
 import { SupplierReadComponent } from './components/supplier/supplier-read/supplier-read.component';
 import { SupplierCreateComponent } from './components/supplier/supplier-create/supplier-create.component';
 import { SupplierUpdateComponent } from './components/supplier/supplier-update/supplier-update.component';
+import { SupplierDeleteComponent } from './components/supplier/supplier-delete/supplier-delete.component';
 
  
 @NgModule({
@@ -53,7 +54,8 @@ import { SupplierUpdateComponent } from './components/supplier/supplier-update/s
     SupplierCrudComponent,
     SupplierReadComponent,
     SupplierCreateComponent,
-    SupplierUpdateComponent
+    SupplierUpdateComponent,
+    SupplierDeleteComponent
   ],
   imports: [
     BrowserModule,

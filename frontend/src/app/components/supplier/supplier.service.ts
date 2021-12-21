@@ -36,8 +36,13 @@ export class SupplierService {
   }
 
   updateSupplier(supplier: Supplier): Observable<Supplier>{
-    const url = `${this.baseUrl}/${supplier.id}`
+    const url = `${this.baseUrl}/${supplier.id}`;
     return this.http.put<Supplier>(url, supplier);
+  }
+
+  deleteSupplier(id: number): Observable<Supplier>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Supplier>(url);
   }
 
 }

@@ -1,3 +1,4 @@
+import { SupplierDeleteComponent } from './components/supplier/supplier-delete/supplier-delete.component';
 import { SupplierUpdateComponent } from './components/supplier/supplier-update/supplier-update.component';
 import { SupplierCreateComponent } from './components/supplier/supplier-create/supplier-create.component';
 import { SupplierCrudComponent } from './views/supplier-crud/supplier-crud/supplier-crud.component';
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: "suppliers/update/:id",
     component: SupplierUpdateComponent
+  },
+  {
+    path: "suppliers/delete/:id",
+    component: SupplierDeleteComponent
   }
 ];
 
