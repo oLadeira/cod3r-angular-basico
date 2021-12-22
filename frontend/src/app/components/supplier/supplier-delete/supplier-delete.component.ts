@@ -1,3 +1,4 @@
+import { catchError } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SupplierService } from './../supplier.service';
 import { Supplier } from './../supplier.model';
@@ -25,8 +26,15 @@ export class SupplierDeleteComponent implements OnInit {
     this.supplierService.deleteSupplier(this.supplier.id!).subscribe(() => {
       this.supplierService.showMessage("Fornecedor Deletado!");
       this.cancel();
+    }, error => {
+      if (error.status == 400){
+        this.supplierService.showMessage(error.error.message, true)
+        console.log(error.error.message)
+      }
+            
     })
   }
+
 
   cancel(): void{
     this.router.navigate(["/suppliers"]);
