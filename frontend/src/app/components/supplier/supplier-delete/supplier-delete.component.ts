@@ -30,8 +30,7 @@ export class SupplierDeleteComponent implements OnInit {
       if (error.status == 400){
         this.supplierService.showMessage(error.error.message, true)
         console.log(error.error.message)
-      }
-            
+      }        
     })
   }
 
