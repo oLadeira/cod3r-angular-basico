@@ -1,7 +1,9 @@
+import { DropdownService } from './../dropdown.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
+import { Supplier } from '../../supplier/supplier.model';
 
 
 @Component({
@@ -13,13 +15,19 @@ export class ProductUpdateComponent implements OnInit {
 
   product!: Product;
 
-  constructor(private productService: ProductService, private router: Router, private route: ActivatedRoute) { }
+  suppliers!: Supplier[];
+
+  constructor(private productService: ProductService, private dropdownService: DropdownService , private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.productService.readById(id!).subscribe(product => {
       this.product = product
     });
+
+    this.dropdownService.readFornecedores().subscribe(dados => {
+      this.suppliers = dados;
+    })
   }
 
   updateProduct(): void{
