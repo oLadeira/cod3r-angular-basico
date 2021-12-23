@@ -11,3 +11,5 @@
 - [Angular](https://angular.io/)
 - [H2](https://www.h2database.com/html/main.html)
 - [Spring](https://spring.io/)
+
+Desenvolvido com ❤️ por <b>Lucas Ladeira.</b>
